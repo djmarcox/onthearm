@@ -84,6 +84,18 @@
     letter-spacing: 0.35em;
     text-transform: uppercase;
   }
+  .contact {
+    margin-top: 22px;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    color: #cfcfcf;
+  }
+  .contact a {
+    color: var(--white);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gray);
+  }
+  .contact a:hover { border-bottom-color: var(--white); }
   footer {
     margin-top: 30px;
     font-size: 0.8rem;
@@ -100,7 +112,16 @@
     <div class="rule">★</div>
     <p class="tagline">This one's on the house.</p>
     <div class="soon">Coming Soon</div>
+    <p class="contact">Get in touch: <span id="email">hello [at] onthearm.com</span></p>
     <footer>&copy; 2026 onThearm.com</footer>
   </main>
+  <script>
+    // Assemble the address in the browser so spam bots reading the HTML don't see it
+    var addr = ['hello', 'onthearm.com'].join('@');
+    var link = document.createElement('a');
+    link.href = 'mailto:' + addr;
+    link.textContent = addr;
+    document.getElementById('email').replaceWith(link);
+  </script>
 </body>
 </html>
